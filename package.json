@@ -1,0 +1,26 @@
+{
+  "name": "boilerplate-jest",
+  "version": "1.0.0",
+  "description": "It's a boilerplate for usage of Jest testing framework in a future project. Check out the docs below to be in actual tune!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "jest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriy-Frostoff/boilerplate-jest.git"
+  },
+  "author": "Dmitriy Frostoff",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Dmitriy-Frostoff/boilerplate-jest/issues"
+  },
+  "homepage": "https://github.com/Dmitriy-Frostoff/boilerplate-jest#readme"
+}
