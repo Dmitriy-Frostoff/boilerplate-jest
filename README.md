@@ -29,13 +29,13 @@ Jest is turned to use config file (but it can be pretty used without config). (c
 **Take a notice:**
 
 - `rootDir` is a dir, where your `jest.config.js` is!
-- `--config='path/to/config'` in the `package.json` => `scripts.test` **must** be used for proper connection of your config file! (`--config` === `-c`). Check current config file using
+- `--config='path/to/config'` in the `package.json` => `scripts.test` **must** be used for a proper connection of your config file! (`--config` === `-c`). Check current config file's usage
 
 ```bash
   npm test -- --showConfig
 ```
 
-in the CLI  
+in the CLI.  
 (**notes**: `npm test` === `npm t`; about `--` like `npm test -- ...` read here [What does -- do when running an npm command?](https://stackoverflow.com/questions/43046885/what-does-do-when-running-an-npm-command)).
 
 ---
