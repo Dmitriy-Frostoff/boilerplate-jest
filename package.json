@@ -16,11 +16,11 @@
   },
   "author": "Dmitriy Frostoff",
   "license": "MIT",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  },
   "bugs": {
     "url": "https://github.com/Dmitriy-Frostoff/boilerplate-jest/issues"
   },
-  "homepage": "https://github.com/Dmitriy-Frostoff/boilerplate-jest#readme"
+  "homepage": "https://github.com/Dmitriy-Frostoff/boilerplate-jest#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
