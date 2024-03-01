@@ -77,7 +77,7 @@ or
 
 - `configs/` - the folder includes config and ignore files, currently for the Jest package (**note**: to create a `jest.config.js` use `npx jest --init` in the CLI);
 - `src/` - source folder for a future project;
-- `.gitignore` - exlude `node_modules` and `cache` from git watching;
+- `.gitignore` - exlude `node_modules`, `cache` and a few more folders from git watching (check the file for more);
 - `LICENSE` - license file;
 - `package.json` - the heart of all.
   Check the scripts. Jest finds the config file (if one exist) automatically;
@@ -100,4 +100,4 @@ or
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: February 20, 2024
+#### done: March 02, 2024
