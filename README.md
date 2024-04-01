@@ -77,6 +77,9 @@ or
 
 - `configs/` - the folder includes config and ignore files, currently for the Jest package (**note**: to create a `jest.config.js` use `npx jest --init` in the CLI);
 - `src/` - source folder for a future project;
+- `test/` - folder for tests in a future project;
+- `.editorconfig` - the project common settings (as for now it's as in RSSChool recommended check the [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) for more.  
+  **notice**: `EditorConfig` extension required!);
 - `.gitignore` - exlude `node_modules`, `cache` and a few more folders from git watching (check the file for more);
 - `LICENSE` - license file;
 - `package.json` - the heart of all.
