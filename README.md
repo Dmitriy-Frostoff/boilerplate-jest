@@ -40,25 +40,6 @@ in the CLI.
 
 ---
 
-For usage with `ESlint` and `Prettier` (e.g. from my boilerplate [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky)) add the following lines to the ESlint's config:
-
-```js
-...
-  overrides: [
-  {
-    files: ['test/**/*'],
-    env: {
-      jest: true,
-    },
-  },
-],
-...
-```
-
-to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
-
----
-
 `Important!!! Before usage, check the actuality of the scripts and settings by links below!!! The currents one could be outdated.`
 
 ### The boilerplate structure and brief descriptions:
@@ -77,7 +58,7 @@ or
 
 - `configs/` - the folder includes config and ignore files, currently for the Jest package (**note**: to create a `jest.config.js` use `npx jest --init` in the CLI);
 - `src/` - source folder for a future project;
-- `test/` - folder for tests in a future project;
+- `tests/` - folder for tests in a future project;
 - `.editorconfig` - the project common settings (as for now it's as in RSSChool recommended check the [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) for more.  
   **notice**: `EditorConfig` extension required!);
 - `.gitignore` - exlude `node_modules`, `cache` and a few more folders from git watching (check the file for more);
@@ -87,20 +68,91 @@ or
 
   With the new packages releases, the ones above can turn to pumpkin, so check'em out with official docs!!!
 
+### Integration with `boilerplate-eslint-prettier-husky`:
+
+For usage with `ESlint` and `Prettier` (e.g. from my boilerplate [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky)):
+
+- copy the `configs` folder of the [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
+
+- install packages from the [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky) as `devDependencies`:
+
+```bash
+npm i -D @commitlint/cli @commitlint/config-conventional typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint prettier husky
+```
+
+- add or overwrite the following lines of the `ESlint config`:
+
+```js
+...
+  {
+      env: {
+        mocha: true,
+        jest: true,
+      },
+      files: ['**/*.test.js'],
+      extends: ['plugin:jest/recommended', 'airbnb-base', 'prettier'],
+    },
+    {
+      env: {
+        mocha: true,
+        jest: true,
+      },
+      files: ['**/*.test.ts'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:jest/recommended',
+        'airbnb-base',
+        'airbnb-typescript/base',
+        'prettier',
+      ],
+      plugins: ['@typescript-eslint'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        project: path.resolve(__dirname, '../ts/tsconfig.json'),
+        ecmaVersion: 'latest',
+      },
+    },
+...
+```
+
+to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
+
 ### Links:
 
-- [Jest the official website](https://jestjs.io/)
-- [Jest the official documentation](https://jestjs.io/docs/getting-started)
-- [Jest the API's details](https://jestjs.io/docs/api)
-- [Configuring Jest](https://jestjs.io/docs/configuration)
-- [Jest CLI Options](https://jestjs.io/docs/cli)
-- [the official GitHub repository of Jest](https://github.com/jestjs/jest)
+#### Jest:
 
-- [checkout the usage of ESM via Jest](https://jestjs.io/docs/ecmascript-modules)
+- [Jest the official website](https://jestjs.io/);
+- [Jest the official documentation](https://jestjs.io/docs/getting-started);
+- [Jest the API's details](https://jestjs.io/docs/api);
+- [Configuring Jest](https://jestjs.io/docs/configuration);
+- [Jest CLI Options](https://jestjs.io/docs/cli);
+- [The official GitHub repository of Jest](https://github.com/jestjs/jest);
+- [checkout the usage of ESM via Jest](https://jestjs.io/docs/ecmascript-modules);
+
+#### ESLint:
+
+- [The official page of eslint-plugin-jest at npmjs.com](https://www.npmjs.com/package/eslint-plugin-jest);
+- [The official github repo of eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest);
+
+#### TypeScript:
+
+- [Jest official docs. Using TypeScript](https://jestjs.io/docs/getting-started#using-typescript);
+- [The official page of @types/jest at npmjs.com for TypeScript support](https://www.npmjs.com/package/@types/jest);
+- [The official page of ts-jest at npmjs.com for TypeScript support](https://www.npmjs.com/package/ts-jest);
+- [The official GitHub repository of ts-jest](https://github.com/kulshekhar/ts-jest);
+- [The official page of ts-node at npmjs.com](https://www.npmjs.com/package/ts-node);
+- [The official GitHub repository of ts-node](https://github.com/TypeStrong/ts-node);
+- [Files with the same name (without extensions) are not parsable](https://github.com/typescript-eslint/typescript-eslint/issues/955);
+- [The official page of tsx at npmjs.com](https://www.npmjs.com/package/tsx);
+- [The official GitHub repository of tsx](https://github.com/privatenumber/tsx);
+
+#### Connections:
+
+- [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
 
 `Don't forget to show the world you're using Jest!` &copy; Jest team  
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg?logo=jest)](https://github.com/jestjs/jest)  
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: March 02, 2024
+#### done: April 10, 2024

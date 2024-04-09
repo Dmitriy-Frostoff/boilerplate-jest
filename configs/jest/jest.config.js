@@ -14,7 +14,7 @@ const config = {
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Temp\\jest",
-  cacheDirectory: "cache/jest",
+  cacheDirectory: 'cache/jest',
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
@@ -26,16 +26,16 @@ const config = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
-  coveragePathIgnorePatterns: ["<rootDir>/node_modules/"],
+  coveragePathIgnorePatterns: ['<rootDir>/node_modules/'],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -54,8 +54,8 @@ const config = {
   // Allows for a label to be printed alongside a test while it is running (name of current config)
   // displayName: undefined
   displayName: {
-    name: "custom jest.config",
-    color: "yellow",
+    name: 'custom jest.config',
+    color: 'yellow',
   },
 
   // Make calling deprecated APIs throw helpful error messages
@@ -86,7 +86,7 @@ const config = {
   // moduleDirectories: [
   //   "node_modules"
   // ],
-  moduleDirectories: ["<rootDir>/node_modules", "<rootDir>/src"],
+  moduleDirectories: ['<rootDir>/node_modules', '<rootDir>/src'],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -100,14 +100,14 @@ const config = {
   //   "node"
   // ],
   moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node",
+    'js',
+    'mjs',
+    'cjs',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -124,6 +124,7 @@ const config = {
 
   // A preset that is used as a base for Jest's configuration
   // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -145,13 +146,13 @@ const config = {
 
   // The root directory that Jest should scan for tests and modules within
   // rootDir: undefined,
-  rootDir: "../../",
+  rootDir: '../../',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
   //   "<rootDir>"
   // ],
-  roots: ["<rootDir>", "<rootDir>/test", "<rootDir>/src"],
+  roots: ['<rootDir>', '<rootDir>/tests', '<rootDir>/src'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -170,6 +171,7 @@ const config = {
 
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-node",
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -188,11 +190,11 @@ const config = {
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
-  testPathIgnorePatterns: ["<rootDir>/build/", "<rootDir>/node_modules/"],
+  testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
-  testRegex: ["test/.+/.+test.[jt]sx?$"],
+  testRegex: ['tests/.+/.+test.[jt]sx?$'],
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
