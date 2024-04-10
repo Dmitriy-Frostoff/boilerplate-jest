@@ -40,7 +40,9 @@ in the CLI.
 
 ---
 
-`Important!!! Before usage, check the actuality of the scripts and settings by links below!!! The currents one could be outdated.`
+### !Important
+
+`Before the usage, check the actuality of the scripts and settings by links below!!! The currents one could be outdated.`
 
 ### The boilerplate structure and brief descriptions:
 
@@ -68,16 +70,27 @@ or
 
   With the new packages releases, the ones above can turn to pumpkin, so check'em out with official docs!!!
 
-### Integration with `boilerplate-eslint-prettier-husky`:
+### Integration with [`Connections`](#Connections) links:
 
-For usage with `ESlint` and `Prettier` (e.g. from my boilerplate [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky)):
+To integrate the boilerplate do the following steps (**note**: copy the project structure as is!!!):
 
-- copy the `configs` folder of the [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
+- add the following lines to the `package.json`:
 
-- install packages from the [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky) as `devDependencies`:
+```json
+...
+"type": "module",
+"scripts": {
+  "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c=configs/jest/jest.config.js"
+},
+...
+```
+
+- copy the `configs`, `tests`, `.editorconfig`, `.gitignore` (optionally);
+
+- install current packages as `devDependencies` via bash command below:
 
 ```bash
-npm i -D @commitlint/cli @commitlint/config-conventional typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint prettier husky
+npm i -D @types/jest eslint-plugin-jest jest ts-jest
 ```
 
 - add or overwrite the following lines of the `ESlint config`:
@@ -115,6 +128,10 @@ npm i -D @commitlint/cli @commitlint/config-conventional typescript @typescript-
 ...
 ```
 
+- check the `roots: ['<rootDir>', '<rootDir>/tests', '<rootDir>/src']` in the `configs/jest/jest.config.js` to add directory with the right source code;
+
+- do all the steps from the top of the document's [# !Important](#!Important) (i.e. rename `projectName`, delete unnecessary files);
+
 to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
 
 ### Links:
@@ -149,10 +166,12 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 #### Connections:
 
 - [boilerplate-eslint-prettier-husky](https://github.com/Dmitriy-Frostoff/boilerplate-eslint-prettier-husky);
+- [boilerplate-webpack-gulp-html-scss-js-components](https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-js-components);
+- [boilerplate-webpack-gulp-html-scss-ts-components](https://github.com/Dmitriy-Frostoff/boilerplate-webpack-gulp-html-scss-ts-components);
 
 `Don't forget to show the world you're using Jest!` &copy; Jest team  
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg?logo=jest)](https://github.com/jestjs/jest)  
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: April 10, 2024
+#### done: April 11, 2024
