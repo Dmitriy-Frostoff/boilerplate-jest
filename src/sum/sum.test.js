@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import { sum } from '../../src/sum.js';
+import { sum } from './sum';
 
 // this is from jest docs for ESM usage;
 // jest.unstable_mockModule('node:child_process', () => ({
