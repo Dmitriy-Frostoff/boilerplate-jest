@@ -14,7 +14,7 @@ const config = {
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Temp\\jest",
-  cacheDirectory: 'cache/jest',
+  cacheDirectory: '<rootDir>/cache/jest',
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
@@ -26,7 +26,7 @@ const config = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: '<rootDir>/coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -86,7 +86,8 @@ const config = {
   // moduleDirectories: [
   //   "node_modules"
   // ],
-  moduleDirectories: ['<rootDir>/node_modules', '<rootDir>/src'],
+  // !!! Use relative pathes only! No way for <rootDIr> (<rootDIr> it's absolute)
+  moduleDirectories: ['node_modules', 'src'],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -184,17 +185,28 @@ const config = {
   //   "**/__tests__/**/*.[jt]s?(x)",
   //   "**/?(*.)+(spec|test).[tj]s?(x)"
   // ],
-  // testMatch: ['test/*test.[jt]sx?'],
+  // ! better to use <rootDir>
+  // ! check and rename "projectName"
+  testMatch: [
+    '<rootDir>/tests/**/*test.[jt]s?(x)',
+    '<rootDir>/projectName/src/**/*test.[jt]s?(x)',
+  ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
-  testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/build/',
+    '<rootDir>/cache/',
+    '<rootDir>/.cache/',
+    '<rootDir>/projectName/dist/',
+    '<rootDir>/node_modules/',
+  ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
-  testRegex: ['tests/.+/.+test.[jt]sx?$', 'src/(.+/){1,}.+test.[jt]sx?$'],
+  // testRegex: ['tests/.+/.+test.[jt]sx?$', 'src/(.+/){1,}.+test.[jt]sx?$'],
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
@@ -211,6 +223,7 @@ const config = {
   //   "\\\\node_modules\\\\",
   //   "\\.pnp\\.[^\\\\]+$"
   // ],
+  transformIgnorePatterns: ['\\\\node_modules\\\\', '\\.pnp\\.[^\\\\]+$'],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

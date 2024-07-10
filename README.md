@@ -130,7 +130,7 @@ npm i -D @types/jest eslint-plugin-jest jest ts-jest
 ```
 
 - check the `roots: ['<rootDir>', '<rootDir>/tests', '<rootDir>/src']` in the `configs/jest/jest.config.js` to add directory with the right source code;
-
+- check the `testMatch[]` and `testPathIgnorePatterns[]` to suit your project structure;
 - do all the steps from the top of the document's [# !Important](#!Important) (i.e. rename `projectName`, delete unnecessary files);
 
 to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
@@ -146,6 +146,11 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 - [Jest CLI Options](https://jestjs.io/docs/cli);
 - [The official GitHub repository of Jest](https://github.com/jestjs/jest);
 - [checkout the usage of ESM via Jest](https://jestjs.io/docs/ecmascript-modules);
+
+#### Glob Patterns:
+
+- [glob (programming)](<https://en.wikipedia.org/wiki/Glob_(programming)>);
+- [A Beginner's Guide: Glob Patterns by Malik Browne, Nov 2019](https://www.malikbrowne.com/blog/a-beginners-guide-glob-patterns/);
 
 #### ESLint:
 
@@ -175,4 +180,4 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: June 07, 2024
+#### done: July 10, 2024
