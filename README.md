@@ -131,6 +131,12 @@ npm i -D @types/jest eslint-plugin-jest jest ts-jest
 
 - check the `roots: ['<rootDir>', '<rootDir>/tests', '<rootDir>/src']` in the `configs/jest/jest.config.js` to add directory with the right source code;
 - check the `testMatch[]` and `testPathIgnorePatterns[]` to suit your project structure;
+- check the `globals['ts-jest']['tsconfig']` to suit your `tsconfig.json` file path;
+- for Frontend development `testEnvironment: 'jsdom'` is prefered (p.s. it can perfectly deal with non - backend
+  specified APIs too), but if there's a need to test Backend specified code
+  use two separated `jest` configs (e.g. `jest.frontend.config.js` and `jest.backend.config.js`), where
+  `jest.frontend.config.js` includes `testEnvironment: 'jsdom'` and
+  `jest.backend.config.js` includes `testEnvironment: 'node'` or `testEnvironment: 'nodeNext'`;
 - do all the steps from the top of the document's [# !Important](#!Important) (i.e. rename `projectName`, delete unnecessary files);
 
 to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
@@ -180,4 +186,4 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: July 10, 2024
+#### done: July 18, 2024

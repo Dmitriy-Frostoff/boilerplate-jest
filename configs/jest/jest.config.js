@@ -172,7 +172,7 @@ const config = {
 
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-node",
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom', // !!! for Backend specified tests use testEnvironment: 'node' or 'nodeNext' with separate config
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -191,7 +191,11 @@ const config = {
     '<rootDir>/tests/**/*test.[jt]s?(x)',
     '<rootDir>/projectName/src/**/*test.[jt]s?(x)',
   ],
-
+  globals: {
+    'ts-jest': {
+      tsconfig: 'configs/ts/tsconfig.json', // !!! Required! Else tsconfig won't be used
+    },
+  },
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
