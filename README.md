@@ -141,6 +141,81 @@ npm i -D @types/jest eslint-plugin-jest jest ts-jest
 
 to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/docs/getting-started#using-eslint)).
 
+### Adding testing-library to React based project:
+
+- Install required packages:
+
+  ```bash
+  npm install jest-environment-jsdom @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event
+  ```
+
+- create `jest-setup.ts` or `jest-setup.js` (for `TS` or `JS` based project) at `configs/jest/` with the following entries:
+
+  ```ts
+  import "@testing-library/jest-dom";
+  ```
+
+  it will give you an opportunity not to import `"@testing-library/jest-dom"` in every file
+  (it will be imported automatically). Also via same way usage in this file you can add all the desired imports
+  to use them in every testing file and reduce redundant `import` 's duplications.
+
+- check the `configs/jest/jest.config.js` to have the options enabled:
+
+  ```js
+    // jest.config.js
+    preset: 'ts-jest', // if you ' re using TypeScript in tests
+    setupFilesAfterEnv: ['<rootDir>/configs/jest/jest-setup.ts'], // to enable jest-setup.ts (or jest-setup.js)
+    // with desired options to all tests
+    testEnvironment: 'jsdom', // for frontend only (or for non NodeJS specific features for tests (not for backend))
+    // for backend use `NodeNext` or appropriate. `jsdom` suits perfectly in most cases because it has particually
+    // all the functionality of `Node` option environment but with additional DOM API support
+    globals: {
+      'ts-jest': {
+        tsconfig: 'configs/ts/tsconfig.json', // check the `tsconfig.json` path
+      },
+    }, // for TS based project is !strongly required! othewise `tsconfig.json` won't be used in tests!!!
+  ```
+
+  It's recommended to check this boilerplate's `configs/jest/jest.config.js` for more details and clarifying comments in it.
+
+- check the `configs/eslint/.eslintrc.cjs` to have this settings or add them:
+
+  ```js
+  // configs/eslint/.eslintrc.cjs at `module.exports.overrides` right after the after object with `files: ['*.tsx, *.ts'],`
+  {
+      env: {
+        mocha: true,
+        jest: true,
+      },
+      files: ['**/*.test.js', '**/*.test.jsx'],
+      extends: ['airbnb-base', 'prettier'],
+    },
+    {
+      env: {
+        mocha: true,
+        jest: true,
+      },
+      files: ['**/*.test.ts', '**/*.test.tsx', 'jest-setup.ts'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'airbnb-base',
+        'airbnb-typescript/base',
+        'prettier',
+      ],
+      plugins: ['@typescript-eslint'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        project: path.resolve(__dirname, '..', 'ts', 'tsconfig.json'),
+        ecmaVersion: 'latest',
+      },
+      rules: {
+        'import/no-extraneous-dependencies': 'off', // check https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md about that
+      },
+    },
+  ```
+
+  **Notice:** search for `cheat sheet` s for a tool, it's very convenient! e.g. `jest cheat sheet`
+
 ### Links:
 
 #### Jest:
@@ -152,6 +227,23 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 - [Jest CLI Options](https://jestjs.io/docs/cli);
 - [The official GitHub repository of Jest](https://github.com/jestjs/jest);
 - [checkout the usage of ESM via Jest](https://jestjs.io/docs/ecmascript-modules);
+- [The official GitHub repository of jsdom](https://github.com/jsdom/jsdom);
+
+#### Testing-library:
+
+- [Testing Library the official website](https://testing-library.com/);
+- [Testing Library the official documentation](https://testing-library.com/docs/);
+- [Testing Library PI's details](https://testing-library.com/docs/queries/about);
+- [The official github repo of dom-testing-library](https://github.com/testing-library/dom-testing-library);
+- [dom-testing-library Cheatsheet](https://testing-library.com/docs/dom-testing-library/cheatsheet);
+- [The official github repo of jest-dom](https://github.com/testing-library/jest-dom);
+- [The official github repo of user-event](https://github.com/testing-library/user-event);
+
+#### React Testing Library:
+
+- [React Testing Library the official website](https://testing-library.com/docs/react-testing-library/intro/);
+- [The official github repo of react-testing-library](https://github.com/testing-library/react-testing-library);
+- [React Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/);
 
 #### Glob Patterns:
 
@@ -186,4 +278,4 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: July 18, 2024
+#### done: August 02, 2024
