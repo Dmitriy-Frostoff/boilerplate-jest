@@ -191,11 +191,7 @@ const config = {
     '<rootDir>/tests/**/*test.[jt]s?(x)',
     '<rootDir>/projectName/src/**/*test.[jt]s?(x)',
   ],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'configs/ts/tsconfig.json', // !!! Required! Else tsconfig won't be used
-    },
-  },
+
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
@@ -220,7 +216,14 @@ const config = {
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,
-  transform: {},
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: 'configs/ts/tsconfig.json', // !!! Required! Else tsconfig won't be used
+      },
+    ],
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

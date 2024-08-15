@@ -131,7 +131,7 @@ npm i -D @types/jest eslint-plugin-jest jest ts-jest
 
 - check the `roots: ['<rootDir>', '<rootDir>/tests', '<rootDir>/src']` in the `configs/jest/jest.config.js` to add directory with the right source code;
 - check the `testMatch[]` and `testPathIgnorePatterns[]` to suit your project structure;
-- check the `globals['ts-jest']['tsconfig']` to suit your `tsconfig.json` file path;
+- check the `transform -> ... -> {'tsconfig': path/to/config}` to suit your `tsconfig.json` file path;
 - for Frontend development `testEnvironment: 'jsdom'` is prefered (p.s. it can perfectly deal with non - backend
   specified APIs too), but if there's a need to test Backend specified code
   use two separated `jest` configs (e.g. `jest.frontend.config.js` and `jest.backend.config.js`), where
@@ -169,10 +169,13 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
     testEnvironment: 'jsdom', // for frontend only (or for non NodeJS specific features for tests (not for backend))
     // for backend use `NodeNext` or appropriate. `jsdom` suits perfectly in most cases because it has particually
     // all the functionality of `Node` option environment but with additional DOM API support
-    globals: {
-      'ts-jest': {
-        tsconfig: 'configs/ts/tsconfig.json', // check the `tsconfig.json` path
-      },
+    transform: {
+      '^.+\\.tsx?$': [
+        'ts-jest',
+        {
+          tsconfig: 'configs/ts/tsconfig.json', // !!! Required! Else tsconfig won't be used
+        },
+      ],
     }, // for TS based project is !strongly required! othewise `tsconfig.json` won't be used in tests!!!
   ```
 
@@ -278,4 +281,4 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: August 02, 2024
+#### done: August 15, 2024
