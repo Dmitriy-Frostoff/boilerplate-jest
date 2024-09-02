@@ -146,7 +146,7 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 - Install required packages:
 
   ```bash
-  npm install jest-environment-jsdom @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event
+  npm install -D jest-environment-jsdom @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event
   ```
 
 - create `jest-setup.ts` or `jest-setup.js` (for `TS` or `JS` based project) at `configs/jest/` with the following entries:
@@ -181,6 +181,12 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 
   It's recommended to check this boilerplate's `configs/jest/jest.config.js` for more details and clarifying comments in it.
 
+- Install required packages for linting your tests:
+
+  ```bash
+  npm install -D eslint-plugin-jest-dom eslint-plugin-testing-library
+  ```
+
 - check the `configs/eslint/.eslintrc.cjs` to have this settings or add them:
 
   ```js
@@ -203,6 +209,8 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
         'plugin:@typescript-eslint/recommended',
         'airbnb-base',
         'airbnb-typescript/base',
+        'plugin:jest-dom/recommended',
+        'plugin:testing-library/react',
         'prettier',
       ],
       plugins: ['@typescript-eslint'],
@@ -257,6 +265,8 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 
 - [The official page of eslint-plugin-jest at npmjs.com](https://www.npmjs.com/package/eslint-plugin-jest);
 - [The official github repo of eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest);
+- [The official github repo of eslint-plugin-jest-dom](https://github.com/testing-library/eslint-plugin-jest-dom);
+- [The official github repo of eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library);
 
 #### TypeScript:
 
@@ -281,4 +291,4 @@ to prevent problems with linting (read more in the [Jest Doc](https://jestjs.io/
 [![jest tested](https://img.shields.io/badge/Jest-tested-eee.svg?logo=jest&labelColor=99424f)](https://github.com/jestjs/jest)  
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/jestjs/jest)
 
-#### done: August 15, 2024
+#### done: September 02, 2024
