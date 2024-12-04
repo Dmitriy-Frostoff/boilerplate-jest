@@ -5,10 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c=configs/jest/jest.config.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c=configs/jest/jest.config.js",
+    "update:packages": "node ./configs/execa/main.js"
   },
   "keywords": [
-    "jest"
+    "jest",
+    "execa"
   ],
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "eslint-plugin-jest": "^28.9.0",
+    "execa": "^9.5.1",
     "jest": "^29.7.0"
   }
 }
